@@ -1,0 +1,33 @@
+.todoItem{
+    background-color: aliceblue;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    box-shadow: 0px, 5px, 50px rgb(32, 35, 41,0.15);
+
+}
+
+.todoItem-p{
+    margin: 24px, 0, 24px, 24px;
+    width: calc(100%- 120px);
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 24px;
+
+}
+
+.todoItem-p--completd{
+    text-decoration: line-through;
+}
+
+
+.cuadrado {
+    width: 20px;           /* Ancho de 150 píxeles */
+    height: 20px;          /* Alto de 150 píxeles */
+    background: red;        /* Fondo de color rojo */
+    border: 1px solid #000; /* Borde color negro y de 1 píxel de grosor */
+    text-align: center;
+    margin-top: 50px;
+  }

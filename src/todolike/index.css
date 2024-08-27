@@ -1,0 +1,29 @@
+
+
+
+.container-like div{
+    display: flex;
+    justify-content: center;
+}
+
+.contenedorLike{
+    display: inline;
+    justify-content: center;
+    align-content: center;
+    margin-right: 80px;
+    margin-top: 10px;
+}
+
+.container-like span{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.container-like button{
+    height: 40px;
+    width: 30px;
+    background: none;
+    border: none;
+}

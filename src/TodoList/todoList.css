@@ -1,0 +1,10 @@
+.TodoList{
+    margin: 0;
+    padding: 0 0 56px 0;
+    list-style: none;
+    margin-top: 50px;
+}
+.containerTodoList{
+    display: flex;
+    justify-content: center;
+}
