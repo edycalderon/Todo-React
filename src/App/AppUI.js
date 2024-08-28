@@ -10,11 +10,16 @@ import { Modal } from '../Modal/index';
 
 function AppUI() {
     const {
+        editar,
+        total,
         addTodo,
         setOpenModal,
+        setEditarValue,
     } = React.useContext(todoContext)
 
     const [NewTodoValue, setNewTodoValue] = React.useState('')
+    const [SearcheEditar, setSearcheEditar] = React.useState('')
+    
 
     const onSubmit = () => {
         addTodo(NewTodoValue)
@@ -26,14 +31,19 @@ function AppUI() {
         setOpenModal(false);
     }
 
-    // const onChange = (event) => {
-    //     setNewTodoValue(event.target.value)
-    // }
+    const agregarEditado = () => {
+        editar(SearcheEditar)
+        setEditarValue(false);
+
+    }
+    const onCancelar = () => {
+        setEditarValue(false);
+    }
 
 
 
     const {
-
+        EditarValue,
         openModal,
         loanding,
         error,
@@ -52,22 +62,30 @@ function AppUI() {
 
             <TodoList>
                 {loanding &&
-                <div className='containerLoanding'>
-                    <div className="spinner">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <div className='containerLoanding'>
+                        <div className="spinner">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </div>
-                </div>
-                    }
+                }
+
                 {error && <p>desesperate hubo un error</p>}
-                {(!loanding && searchedTodos.length === 0)
-                    && <p>Crear tu primer TODO</p>}
+
+                {
+                    (total === 0 && loanding === false)
+                    && <p>Crear tu primer TODO</p>
+                }
+
+                {(searchedTodos.length === 0 && total > 0)
+                    && <p>No Tienes TODO Con Este Nombre</p>
+                }
 
                 {searchedTodos.map(todo => (
                     <TodayItem
@@ -95,11 +113,33 @@ function AppUI() {
                                 <input type="text" name="text" className="input" placeholder="Tarea"
                                     onChange={(event) => { setNewTodoValue(event.target.value) }}
 
-                                //value={NewTodoValue}
+                                    //value={NewTodoValue}
                                 />
                                 <div>
                                     <button className="btn" onClick={() => onCancel()}>calcelar</button>
                                     <button className="btn" onClick={() => onSubmit()}>agregar</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </Modal>
+            )}
+
+
+            {EditarValue && (
+                <Modal>
+                    <div className='containerModal'>
+                        <div className="card">
+                            <div className="card2">
+                                <input type="text" name="text" className="input" placeholder="Tarea"
+                                    onChange={(event) => { setSearcheEditar(event.target.value) }}
+
+                                    
+                                />
+                                <div>
+                                    <button className="btn" onClick={() => onCancelar()}>calcelar</button>
+                                    <button className="btn" onClick={() => agregarEditado()}>Editarlo</button>
                                 </div>
 
                             </div>

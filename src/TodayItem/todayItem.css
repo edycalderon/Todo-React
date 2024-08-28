@@ -1,3 +1,43 @@
+/* From Uiverse.io by kamehame-ha 
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .cards .red {
+    background-color: #f43f5e;
+  }
+  
+
+  .cards .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100px;
+    width: 500px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+  }
+  
+
+  
+
+  .cards .card:hover {
+    transform: scale(1.1, 1.1);
+  }
+  
+  */
+
+
+
+
+
+
+
+
 .todoItem{
     background-color: aliceblue;
     position: relative;
@@ -23,11 +63,33 @@
 }
 
 
-.cuadrado {
-    width: 20px;           /* Ancho de 150 píxeles */
-    height: 20px;          /* Alto de 150 píxeles */
-    background: red;        /* Fondo de color rojo */
-    border: 1px solid #000; /* Borde color negro y de 1 píxel de grosor */
-    text-align: center;
-    margin-top: 50px;
-  }
+.todoItem-p{
+    background-color: aqua;
+}
+.containerp{
+    display: flex;
+    justify-content: center;
+}
+.todoItem{
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    background-color: #ccc;
+    width: 500px;
+    height: 150px;
+    -webkit-box-shadow:0 0px 4px #777, 0 0 20px #CCC inset;
+    -moz-box-shadow:0 0px 4px #777, 0 0 20px #CCC inset;
+    box-shadow:0 0px 4px #777, 0 0 20px #CCC inset;
+}
+
+.lip{
+    display: flex;
+    justify-content: center;
+}
+.containerLike{
+    display: block;
+    border: solid black 5px;
+}
+.contenedor-p{
+    display: block;
+}

@@ -19,12 +19,15 @@ function Todoprovider({ children }) {
     loanding,
     error,
   } = useLocalStorage('TODOS_V1', [])
+  
   const [SearchValue, setSearcheValue] = React.useState('')
+  //console.log(SearchValue)
+  //let valorTodo ;
   const todosCompletados = todos.filter(todos => todos.completado).length
   let total = todos.length
   let searchedTodos = todos.filter((todos) => {
     return todos.text.toLowerCase().includes(SearchValue.toLowerCase())
-  })
+  } )
 
   const {
     item: contador,
@@ -45,6 +48,7 @@ function Todoprovider({ children }) {
   }
 
   const [openModal, setOpenModal] = React.useState(false)
+  const [EditarValue, setEditarValue] = React.useState(false)
   
 
 
@@ -61,17 +65,21 @@ function Todoprovider({ children }) {
     let newTodo = [...todos]
     let todoIndex = newTodo.findIndex(
       (todo) => todo.id === id
+      
     )
+    console.log(todoIndex)
     newTodo.splice(todoIndex, 1)
     saveTodos(newTodo)
   }
 
-
+  
   const aumentarlikes = (id) => {
     const newTodos = [...todos]
     const todoIndex = newTodos.findIndex(
       (todo) => todo.id === id
+      
     )
+    
     newTodos[todoIndex].like += 1
     saveTodos(newTodos)
   }
@@ -84,12 +92,15 @@ function Todoprovider({ children }) {
     if (newTodos[todoIndex].like > 0) {
       newTodos[todoIndex].like -= 1
       saveTodos(newTodos)
+      console.log(newTodos)
     }
   }
-
+  
 
   return (
     <todoContext.Provider value={{
+      setEditarValue,
+      EditarValue,
       addTodo,
       setOpenModal,
       openModal,
