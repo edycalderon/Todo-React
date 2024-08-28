@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Todo-React/static/css/main.a931400a.css",
-    "main.js": "/Todo-React/static/js/main.5d165ada.js",
+    "main.js": "/Todo-React/static/js/main.46122732.js",
     "static/media/to.jpg": "/Todo-React/static/media/to.af37f7f088afcf60e6cd.jpg",
     "static/media/meGusta.svg": "/Todo-React/static/media/meGusta.5951dfd2bc8525449a20ccb33db5f610.svg",
     "static/media/megusta1.svg": "/Todo-React/static/media/megusta1.7651b2e4c7d272ecb89855730bd99b55.svg",
@@ -10,10 +10,10 @@
     "static/media/delete.svg": "/Todo-React/static/media/delete.f08965954dafe527b4cddeb7528a99d8.svg",
     "static/media/check.svg": "/Todo-React/static/media/check.4e5d60a71909a219bdfdc4417553dc8f.svg",
     "main.a931400a.css.map": "/Todo-React/static/css/main.a931400a.css.map",
-    "main.5d165ada.js.map": "/Todo-React/static/js/main.5d165ada.js.map"
+    "main.46122732.js.map": "/Todo-React/static/js/main.46122732.js.map"
   },
   "entrypoints": [
     "static/css/main.a931400a.css",
-    "static/js/main.5d165ada.js"
+    "static/js/main.46122732.js"
   ]
 }
