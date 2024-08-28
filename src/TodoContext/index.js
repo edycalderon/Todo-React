@@ -48,8 +48,11 @@ function Todoprovider({ children }) {
   }
 
   const [openModal, setOpenModal] = React.useState(false)
-  const [EditarValue, setEditarValue] = React.useState(false)
+  const [id, setId] = React.useState()
+  const [newTodoValue, setNewTodoValue] = React.useState('')
+  //const [SearchValue, setSearchValue] = React.useState('')
   
+
 
 
   let onCompleteTodo = (id) => {
@@ -95,12 +98,36 @@ function Todoprovider({ children }) {
       console.log(newTodos)
     }
   }
-  
+
+  const editTodo =(id) =>{
+    setOpenModal(true)
+    setId(id)
+    let newTodo =[...todos]
+    let todoIndex = newTodo.findIndex(
+      (todo) => todo.id === id
+    )
+    setNewTodoValue(newTodo[todoIndex].test)
+  }
+
+  const edit =(id, text) => {
+    if(text !== ''){
+      let newTodo = [...todos]
+      let todoIndex = newTodo.findIndex(
+        (todo) => todo.id === id
+      )
+      newTodo[todoIndex].text = text
+      saveTodos(newTodo)
+    }
+  }
 
   return (
     <todoContext.Provider value={{
-      setEditarValue,
-      EditarValue,
+      newTodoValue,
+      editTodo,
+      setId,
+      setNewTodoValue,
+      id,
+      edit,
       addTodo,
       setOpenModal,
       openModal,

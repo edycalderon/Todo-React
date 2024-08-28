@@ -10,35 +10,43 @@ import { Modal } from '../Modal/index';
 
 function AppUI() {
     const {
-        editar,
+        id,
+        edit,
+        setId,
+        editTodo,
         total,
         addTodo,
         setOpenModal,
-        setEditarValue,
     } = React.useContext(todoContext)
 
     const [NewTodoValue, setNewTodoValue] = React.useState('')
-    const [SearcheEditar, setSearcheEditar] = React.useState('')
     
 
-    const onSubmit = () => {
+    const onSubmit = (event) => {
+        event.preventDefault()
         addTodo(NewTodoValue)
         setOpenModal(false);
+        setNewTodoValue('')
 
     }
 
     const onCancel = () => {
         setOpenModal(false);
+        setNewTodoValue('')
+        setId()
     }
 
-    const agregarEditado = () => {
-        editar(SearcheEditar)
-        setEditarValue(false);
+    const update = (event) =>{
+        event.preventDefault()
+        edit(id, NewTodoValue)
+        addTodo(NewTodoValue)
+        setOpenModal(false);
+        setNewTodoValue('')
+    }
 
-    }
-    const onCancelar = () => {
-        setEditarValue(false);
-    }
+    // const onChange = (event) => {
+    //     setNewTodoValue(event.target.value)
+    // }
 
 
 
@@ -97,6 +105,7 @@ function AppUI() {
                         onAumentarLike={() => aumentarlikes(todo.id)}
                         like={todo.like}
                         onDisminuirLike={() => disminuirlikes(todo.id)}
+                        editTodo = {() => editTodo(todo.id)}
 
                     />
                 ))}
@@ -126,27 +135,6 @@ function AppUI() {
                 </Modal>
             )}
 
-
-            {EditarValue && (
-                <Modal>
-                    <div className='containerModal'>
-                        <div className="card">
-                            <div className="card2">
-                                <input type="text" name="text" className="input" placeholder="Tarea"
-                                    onChange={(event) => { setSearcheEditar(event.target.value) }}
-
-                                    
-                                />
-                                <div>
-                                    <button className="btn" onClick={() => onCancelar()}>calcelar</button>
-                                    <button className="btn" onClick={() => agregarEditado()}>Editarlo</button>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </Modal>
-            )}
 
         </>
 
